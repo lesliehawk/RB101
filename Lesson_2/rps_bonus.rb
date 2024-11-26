@@ -2,7 +2,7 @@
 
 VALID_CHOICES = %w(rock paper scissors lizard Spock)
 VALID_ABBRV = %w(r p s l S)
-
+MATCH_POINTS = 3
 WINNING_COMBOS = {  'rock' => ['scissors', 'lizard'],
                     'paper' => ['rock', 'Spock'],
                     'scissors' => ['paper', 'lizard'],
@@ -15,7 +15,7 @@ end
 
 def display_welcome
   prompt("Welcome to Rock, Paper, Scissors, Lizard, Spock!")
-  prompt("First to 3 points wins the match.")
+  prompt("First to #{MATCH_POINTS} points wins the match.")
 end
 
 def display_choice_list
@@ -59,7 +59,7 @@ def display_scoreboard(opponents)
 end
 
 def display_match_winner(players)
-  prompt(">>#{players.key(3)} wins the match!!<<".upcase)
+  prompt(">>#{players.key(MATCH_POINTS)} wins the match!!<<".upcase)
   puts ""
 end
 
@@ -93,7 +93,7 @@ loop do
 
     players[winner] += 1 unless winner == :tie
 
-    break if players.value?(3)
+    break if players.value?(MATCH_POINTS)
   end
 
   display_scoreboard(players)
