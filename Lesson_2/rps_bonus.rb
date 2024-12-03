@@ -43,7 +43,7 @@ end
 
 def display_choice_list
   prompt("Choose one: #{VALID_CHOICES.join(', ')}.")
-  prompt("You may select by word or first letter, case sensitive.")
+  prompt("You may select by word, or first letter (r, p, s, l, S).")
 end
 
 def return_choice(chars)
